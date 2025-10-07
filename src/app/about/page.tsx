@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Building2, Users, Award, Target, CheckCircle, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import SimpleFooter from "@/components/SimpleFooter";
 
@@ -249,18 +250,18 @@ export default function AboutPage() {
                 Contact our team today for a consultation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/contact"
                   className="px-8 py-3 bg-white text-orange-600 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
                 >
                   Contact Us
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/properties"
                   className="px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:text-orange-600 transition-colors font-semibold"
                 >
                   Browse Properties
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>

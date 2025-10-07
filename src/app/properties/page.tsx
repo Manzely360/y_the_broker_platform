@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useProjects } from "@/hooks/useProjects";
+import { Property } from "@/types/property";
 import { Heart, MapPin, Bed, Bath, Square, ArrowRight, Filter, Grid, List } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,7 +59,7 @@ export default function PropertiesPage() {
     );
   };
 
-  const PropertyCard = ({ project, index }: { project: any; index: number }) => (
+  const PropertyCard = ({ project, index }: { project: Property; index: number }) => (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}

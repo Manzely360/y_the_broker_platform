@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { motion } from "framer-motion";
 import { useProjects } from "@/hooks/useProjects";
+import { Property } from "@/types/property";
 import { 
   Heart, 
   MapPin, 
@@ -14,8 +14,6 @@ import {
   Share2, 
   Phone, 
   MessageCircle,
-  Star,
-  Calendar,
   Building2,
   Car,
   TreePine,
@@ -30,7 +28,7 @@ import SimpleFooter from "@/components/SimpleFooter";
 export default function PropertyDetailPage() {
   const params = useParams();
   const { projects } = useProjects();
-  const [property, setProperty] = useState<any>(null);
+  const [property, setProperty] = useState<Property | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [favorites, setFavorites] = useState<number[]>([]);
 

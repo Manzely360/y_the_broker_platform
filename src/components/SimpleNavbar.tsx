@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Search, User, Heart, Bell } from "lucide-react";
+import { Menu, X, Search, User, Heart } from "lucide-react";
 import Image from "next/image";
 
 const nav = [
