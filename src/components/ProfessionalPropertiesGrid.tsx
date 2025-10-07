@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useProjects } from "@/hooks/useProjects";
+import { Property } from "@/types/property";
 import { 
   Heart, 
   MapPin, 
@@ -13,13 +14,11 @@ import {
   Eye,
   Share2,
   Star,
-  Calendar,
   Building2,
   Car,
   TreePine,
   Shield,
   Wifi,
-  Maximize,
   X
 } from "lucide-react";
 import Image from "next/image";
@@ -32,7 +31,7 @@ import Tilt from "react-parallax-tilt";
 export default function ProfessionalPropertiesGrid() {
   const { projects, isLoading } = useProjects();
   const [favorites, setFavorites] = useState<number[]>([]);
-  const [selectedProperty, setSelectedProperty] = useState<any>(null);
+  const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
 
   const toggleFavorite = (id: number) => {
@@ -43,18 +42,11 @@ export default function ProfessionalPropertiesGrid() {
     );
   };
 
-  const openQuickView = (property: any) => {
+  const openQuickView = (property: Property) => {
     setSelectedProperty(property);
     setIsQuickViewOpen(true);
   };
 
-  const features = [
-    { icon: Wifi, label: "High-Speed Internet" },
-    { icon: Car, label: "Parking Space" },
-    { icon: TreePine, label: "Garden" },
-    { icon: Shield, label: "Security System" },
-    { icon: Building2, label: "Modern Design" },
-  ];
 
   if (isLoading) {
     return (

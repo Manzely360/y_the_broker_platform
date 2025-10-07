@@ -9,15 +9,12 @@ import {
   Building2, 
   Waves, 
   ChevronDown,
-  Play,
   Star,
   TrendingUp,
-  Shield,
-  Award
+  Shield
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useInView } from "react-intersection-observer";
-import Image from "next/image";
 
 const propertyTypes = [
   { id: "residential", label: "Residential", icon: Home, color: "text-blue-600", bg: "bg-blue-50" },
@@ -39,7 +36,6 @@ const stats = [
 
 export default function ProfessionalHero() {
   const [selectedType, setSelectedType] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
