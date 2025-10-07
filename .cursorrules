@@ -1,0 +1,12 @@
+When I say "add feature X", do:
+1) Update /server schema/handlers and ensure it starts locally.
+2) Commit + push server; trigger redeploy for cloud backend.
+3) Update Next.js in / to consume changes; run typecheck + build.
+4) Commit + push frontend; vercel deploy --prod.
+5) Reply with live URLs.
+Allowed commands:
+- npm --prefix server run start
+- git add -A && git commit -m "<msg>" && git push
+- vercel deploy --prod
+Env:
+- NEXT_PUBLIC_MANIFEST_API_BASE is the API base for frontend.
