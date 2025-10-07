@@ -1,0 +1,177 @@
+[
+  {
+    "id": "1",
+    "slug": "telal-north-coast",
+    "name": "Telal North Coast",
+    "location": "North Coast, Egypt",
+    "category": "Coastal",
+    "area": "2,500",
+    "price": "Starting from $150,000",
+    "description": "Luxury coastal resort with stunning sea views and world-class amenities. Perfect for those seeking a premium beachfront lifestyle.",
+    "features": [
+      "Private Beach Access",
+      "Infinity Pool",
+      "Spa & Wellness Center",
+      "24/7 Security",
+      "Marina Access",
+      "Restaurants & Cafes"
+    ],
+    "gallery": [
+      "/media/img/telal-north-coast-1.webp",
+      "/media/img/telal-north-coast-2.webp",
+      "/media/img/telal-north-coast-3.webp"
+    ],
+    "heroVideo": "/media/video/Y-The-Brokers-Video-Website-1.mp4",
+    "status": "Available",
+    "developer": "Telal Development",
+    "bedrooms": "2-4",
+    "bathrooms": "2-3",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-10-07T00:00:00Z"
+  },
+  {
+    "id": "2",
+    "slug": "d-bay-resort",
+    "name": "D-Bay Resort",
+    "location": "North Coast, Egypt",
+    "category": "Coastal",
+    "area": "3,200",
+    "price": "Starting from $180,000",
+    "description": "Exclusive beachfront resort offering unparalleled luxury and privacy. Features include private villas and premium amenities.",
+    "features": [
+      "Private Beach",
+      "Luxury Villas",
+      "Golf Course",
+      "Fine Dining",
+      "Kids Club",
+      "Water Sports"
+    ],
+    "gallery": [
+      "/media/img/d-bay-resort-1.webp",
+      "/media/img/d-bay-resort-2.webp",
+      "/media/img/d-bay-resort-3.webp"
+    ],
+    "status": "Available",
+    "developer": "D-Bay Development",
+    "bedrooms": "3-5",
+    "bathrooms": "3-4",
+    "createdAt": "2024-02-01T00:00:00Z",
+    "updatedAt": "2024-10-07T00:00:00Z"
+  },
+  {
+    "id": "3",
+    "slug": "azha-north-coast",
+    "name": "Azha North Coast",
+    "location": "North Coast, Egypt",
+    "category": "Coastal",
+    "area": "2,800",
+    "price": "Starting from $165,000",
+    "description": "Modern coastal development with contemporary design and sustainable features. Perfect for families and investors.",
+    "features": [
+      "Smart Home Technology",
+      "Solar Panels",
+      "Green Spaces",
+      "Fitness Center",
+      "Shopping Mall",
+      "Medical Center"
+    ],
+    "gallery": [
+      "/media/img/azha-north-coast-1.webp",
+      "/media/img/azha-north-coast-2.webp",
+      "/media/img/azha-north-coast-3.webp"
+    ],
+    "status": "Available",
+    "developer": "Azha Development",
+    "bedrooms": "2-4",
+    "bathrooms": "2-3",
+    "createdAt": "2024-03-10T00:00:00Z",
+    "updatedAt": "2024-10-07T00:00:00Z"
+  },
+  {
+    "id": "4",
+    "slug": "capital-tower-october",
+    "name": "Capital Tower 6 October",
+    "location": "6 October City, Egypt",
+    "category": "Commercial",
+    "area": "5,000",
+    "price": "Starting from $200,000",
+    "description": "Premium commercial tower in the heart of 6 October City. Ideal for businesses seeking modern office spaces.",
+    "features": [
+      "Modern Office Spaces",
+      "Parking Garage",
+      "Conference Rooms",
+      "High-Speed Internet",
+      "24/7 Security",
+      "Cafeteria"
+    ],
+    "gallery": [
+      "/media/img/capital-tower-1.webp",
+      "/media/img/capital-tower-2.webp",
+      "/media/img/capital-tower-3.webp"
+    ],
+    "status": "Available",
+    "developer": "Capital Development",
+    "bedrooms": "N/A",
+    "bathrooms": "N/A",
+    "createdAt": "2024-04-05T00:00:00Z",
+    "updatedAt": "2024-10-07T00:00:00Z"
+  },
+  {
+    "id": "5",
+    "slug": "win-plaza-mall",
+    "name": "Win Plaza Mall",
+    "location": "6 October City, Egypt",
+    "category": "Commercial",
+    "area": "8,500",
+    "price": "Starting from $300,000",
+    "description": "Large-scale commercial mall with retail spaces, entertainment zones, and dining options.",
+    "features": [
+      "Retail Spaces",
+      "Entertainment Zone",
+      "Food Court",
+      "Cinema",
+      "Parking",
+      "Security"
+    ],
+    "gallery": [
+      "/media/img/win-plaza-1.webp",
+      "/media/img/win-plaza-2.webp",
+      "/media/img/win-plaza-3.webp"
+    ],
+    "status": "Available",
+    "developer": "Win Development",
+    "bedrooms": "N/A",
+    "bathrooms": "N/A",
+    "createdAt": "2024-05-15T00:00:00Z",
+    "updatedAt": "2024-10-07T00:00:00Z"
+  },
+  {
+    "id": "6",
+    "slug": "space-october",
+    "name": "Space 6 October",
+    "location": "6 October City, Egypt",
+    "category": "Residential",
+    "area": "1,800",
+    "price": "Starting from $120,000",
+    "description": "Modern residential compound with contemporary apartments and family-friendly amenities.",
+    "features": [
+      "Swimming Pool",
+      "Gym",
+      "Kids Playground",
+      "Green Spaces",
+      "Security",
+      "Parking"
+    ],
+    "gallery": [
+      "/media/img/space-october-1.webp",
+      "/media/img/space-october-2.webp",
+      "/media/img/space-october-3.webp"
+    ],
+    "status": "Available",
+    "developer": "Space Development",
+    "bedrooms": "2-3",
+    "bathrooms": "2",
+    "createdAt": "2024-06-01T00:00:00Z",
+    "updatedAt": "2024-10-07T00:00:00Z"
+  }
+]

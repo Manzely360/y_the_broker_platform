@@ -1,26 +1,74 @@
-# This is a sample file for a manifest.yml manifest backend.
-# Read more about the manifest format here: https:/manifest.build/docs
+# Y The Brokers Real Estate Backend
+# Read more about the manifest format here: https://manifest.build/docs
 
-name: My pet app 🐾
+name: Y The Brokers Real Estate 🏠
 entities:
-  Owner:
+  Project:
     properties:
       - name
-      - { name: birthdate, type: date }
+      - slug
+      - location
+      - category
+      - area
+      - price
+      - description
+      - features
+      - gallery
+      - heroVideo
+      - status
+      - developer
+      - bedrooms
+      - bathrooms
+      - { name: createdAt, type: date }
+      - { name: updatedAt, type: date }
     policies:
       read:
         - access: public
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
 
-  Cat:
+  Inquiry:
     properties:
       - name
-      - { name: age, type: number }
-      - { name: birthdate, type: date }
+      - email
+      - phone
+      - message
+      - projectId
+      - { name: createdAt, type: date }
     belongsTo:
-      - Owner
+      - Project
+    policies:
+      read:
+        - access: admin
+      create:
+        - access: public
+      update:
+        - access: admin
+      delete:
+        - access: admin
+
+  Agent:
+    properties:
+      - name
+      - email
+      - phone
+      - bio
+      - avatar
+      - specialties
+      - { name: createdAt, type: date }
     policies:
       read:
         - access: public
+      create:
+        - access: admin
+      update:
+        - access: admin
+      delete:
+        - access: admin
 
   Homepage:
     nameSingular: Home content
@@ -28,7 +76,10 @@ entities:
     properties:
       - title
       - { name: description, type: richText }
-      - { name: cover, type: image }
+      - { name: heroVideo, type: image }
+      - { name: featuredProjects, type: json }
     policies:
       read:
         - access: public
+      update:
+        - access: admin
