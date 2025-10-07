@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useProjects } from "@/hooks/useProjects";
 import { Property } from "@/types/property";
@@ -12,15 +11,14 @@ import SimpleNavbar from "@/components/SimpleNavbar";
 import SimpleFooter from "@/components/SimpleFooter";
 
 export default function PropertiesPage() {
-  const searchParams = useSearchParams();
   const { projects, isLoading } = useProjects();
   const [favorites, setFavorites] = useState<number[]>([]);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [filters, setFilters] = useState({
-    type: searchParams.get("type") || "",
-    location: searchParams.get("location") || "",
-    price: searchParams.get("price") || "",
-    search: searchParams.get("q") || "",
+    type: "",
+    location: "",
+    price: "",
+    search: "",
   });
 
   const [filteredProjects, setFilteredProjects] = useState(projects);
