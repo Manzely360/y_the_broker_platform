@@ -1,26 +1,13 @@
-import { Hero } from '@/components/Hero';
-import { FeaturedProjects } from '@/components/FeaturedProjects';
-import { QuickSearch } from '@/components/QuickSearch';
-import { Partners } from '@/components/Partners';
-import { Stats } from '@/components/Stats';
+import Navbar from "@/components/Navbar";
+import FeatureCards from "@/components/FeatureCards";
 
-export default function HomePage() {
+export default function Page() {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <Hero />
-      
-      {/* Quick Search */}
-      <QuickSearch />
-      
-      {/* Featured Projects */}
-      <FeaturedProjects />
-      
-      {/* Stats Section */}
-      <Stats />
-      
-      {/* Partners Section */}
-      <Partners />
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <FeatureCards />
+      </main>
+    </>
   );
 }

@@ -13,14 +13,18 @@
     "install:playwright": "npx playwright install"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "@mnfst/sdk": "^1.3.2",
+    "clsx": "^2.1.1",
     "i18next": "^25.5.3",
+    "lucide-react": "^0.545.0",
     "next": "15.5.4",
     "next-i18next": "^15.4.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-i18next": "^16.0.0",
-    "swr": "^2.3.6"
+    "swr": "^2.3.6",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
