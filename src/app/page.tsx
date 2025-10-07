@@ -1,9 +1,9 @@
 import ProfessionalNavbar from "@/components/ProfessionalNavbar";
-import UltraAdvancedHero from "@/components/UltraAdvancedHero";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
+import CleanHero from "@/components/CleanHero";
+import CleanAbout from "@/components/CleanAbout";
+import CleanServices from "@/components/CleanServices";
+import CleanTestimonials from "@/components/CleanTestimonials";
+import CleanContact from "@/components/CleanContact";
 import ProfessionalPropertiesGrid from "@/components/ProfessionalPropertiesGrid";
 import ProfessionalFooter from "@/components/ProfessionalFooter";
 
@@ -12,10 +12,10 @@ export default function Page() {
     <div className="min-h-screen">
       <ProfessionalNavbar />
       <main>
-        <UltraAdvancedHero />
-        <AboutSection />
-        <ServicesSection />
-        <TestimonialsSection />
+        <CleanHero />
+        <CleanAbout />
+        <CleanServices />
+        <CleanTestimonials />
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -30,7 +30,7 @@ export default function Page() {
             <ProfessionalPropertiesGrid />
           </div>
         </section>
-        <ContactSection />
+        <CleanContact />
       </main>
       <ProfessionalFooter />
     </div>
