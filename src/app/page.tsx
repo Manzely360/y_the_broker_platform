@@ -4,6 +4,7 @@ import SimpleAbout from "@/components/SimpleAbout";
 import PropertiesTable from "@/components/PropertiesTable";
 import SimpleContact from "@/components/SimpleContact";
 import SimpleFooter from "@/components/SimpleFooter";
+import FeatureCards from "@/components/FeatureCards";
 
 export default function Page() {
   return (
@@ -11,6 +12,7 @@ export default function Page() {
       <CleanNavbar />
       <main>
         <SimpleHero />
+        <FeatureCards />
         <SimpleAbout />
         <PropertiesTable />
         <SimpleContact />

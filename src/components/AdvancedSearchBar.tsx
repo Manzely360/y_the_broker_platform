@@ -35,6 +35,8 @@ export default function AdvancedSearchBar() {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const { projects } = useProjects();
+  const premiumListingText =
+    projects.length > 0 ? `${projects.length} premium listings available now` : "Explore our curated premium listings";
 
   // Generate suggestions based on projects
   useEffect(() => {
@@ -69,15 +71,15 @@ export default function AdvancedSearchBar() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden"
+        className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/60 overflow-hidden"
       >
         {/* Main Search Row */}
-        <form onSubmit={handleSearch} className="p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <form onSubmit={handleSearch} className="p-6 lg:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
             {/* Search Input */}
             <div className="lg:col-span-2 relative">
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                 <input
                   type="text"
                   value={searchQuery}
@@ -85,7 +87,7 @@ export default function AdvancedSearchBar() {
                   onFocus={() => setShowSuggestions(true)}
                   onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
                   placeholder="Search by project name, location, or keywords..."
-                  className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                  className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900 placeholder-gray-500 bg-white"
                 />
               </div>
               
@@ -96,7 +98,7 @@ export default function AdvancedSearchBar() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto"
+                    className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 max-h-60 overflow-y-auto"
                   >
                     {suggestions.map((suggestion, index) => (
                       <button
@@ -122,7 +124,7 @@ export default function AdvancedSearchBar() {
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="w-full pl-4 pr-10 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none bg-white"
+                className="w-full pl-4 pr-10 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none bg-white text-gray-900"
               >
                 <option value="">All Types</option>
                 {propertyTypes.map((type) => (
@@ -137,7 +139,7 @@ export default function AdvancedSearchBar() {
             {/* Search Button */}
             <button
               type="submit"
-              className="w-full bg-orange-600 text-white py-4 px-6 rounded-xl hover:bg-orange-700 transition-colors font-semibold flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-orange-600 to-orange-700 text-white py-4 px-6 rounded-xl hover:from-orange-700 hover:to-orange-800 transition-colors font-semibold flex items-center justify-center gap-2 shadow-lg"
             >
               <Search size={20} />
               Search
@@ -145,11 +147,12 @@ export default function AdvancedSearchBar() {
           </div>
 
           {/* Advanced Filters Toggle */}
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <button
               type="button"
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-colors"
+              className="flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-colors font-medium"
+              aria-expanded={showFilters}
             >
               <Filter size={16} />
               <span>Advanced Filters</span>
@@ -159,8 +162,9 @@ export default function AdvancedSearchBar() {
               />
             </button>
             
-            <div className="text-sm text-gray-500">
-              {projects.length} properties available
+            <div className="text-sm text-gray-500 flex items-center gap-2">
+              <span className="inline-flex h-2 w-2 rounded-full bg-orange-500"></span>
+              {premiumListingText}
             </div>
           </div>
         </form>
@@ -172,7 +176,7 @@ export default function AdvancedSearchBar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t border-gray-200 bg-gray-50 p-6"
+              className="border-t border-gray-200 bg-white/90 backdrop-blur-lg p-6 lg:p-8"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Location Filter */}
@@ -225,23 +229,37 @@ export default function AdvancedSearchBar() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Quick Filters
                   </label>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {propertyTypes.map((type) => (
                       <button
                         key={type.id}
                         type="button"
                         onClick={() => setSelectedType(selectedType === type.id ? "" : type.id)}
-                        className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all ${
                           selectedType === type.id
-                            ? "bg-orange-100 text-orange-700 border border-orange-300"
-                            : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+                            ? "bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg"
+                            : "bg-white/80 text-gray-700 border border-gray-200 hover:border-orange-200 hover:text-orange-600"
                         }`}
                       >
-                        <type.icon size={14} className={type.color} />
+                        <type.icon
+                          size={16}
+                          className={selectedType === type.id ? "text-white" : type.color}
+                        />
                         {type.label}
                       </button>
                     ))}
                   </div>
+                </div>
+
+                <div className="lg:col-span-3 bg-orange-50 border border-orange-100 rounded-xl px-5 py-4 text-sm text-orange-700">
+                  Fine-tune your search to surface ideal matches faster. Need tailored support? Our advisors are available 24/7 on{" "}
+                  <a
+                    href="tel:+201234567890"
+                    className="font-semibold underline decoration-orange-400 underline-offset-4 hover:text-orange-800"
+                  >
+                    +20 123 456 7890
+                  </a>
+                  .
                 </div>
               </div>
             </motion.div>

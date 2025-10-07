@@ -1,11 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { Phone, Mail, Send, Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import toast from "react-hot-toast";
+
+const contactHighlights = [
+  {
+    icon: Phone,
+    title: "Direct Line",
+    description: "+20 123 456 7890",
+    href: "tel:+201234567890",
+  },
+  {
+    icon: Mail,
+    title: "Email Support",
+    description: "info@ythebrokers.com",
+    href: "mailto:info@ythebrokers.com",
+  },
+  {
+    icon: Clock,
+    title: "Availability",
+    description: "Dedicated advisors 24/7",
+  },
+];
 
 export default function SimpleContact() {
   const [formData, setFormData] = useState({
@@ -20,7 +41,7 @@ export default function SimpleContact() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,8 +49,7 @@ export default function SimpleContact() {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       toast.success("Message sent successfully! We'll get back to you soon.");
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch {
@@ -40,73 +60,107 @@ export default function SimpleContact() {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-24">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.15),rgba(17,24,39,0.9))]" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center text-white"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Get in Touch
+          <p className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+            Let&apos;s Talk
+          </p>
+          <h2 className="mt-6 text-4xl font-bold sm:text-5xl">
+            Schedule a Private Consultation
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to find your dream property? Contact our expert team for personalized assistance.
+          <p className="mt-4 text-lg text-white/70 max-w-3xl mx-auto">
+            Our senior advisors are on-call to help with acquisition planning, valuations, leasing strategies, and holistic property portfolios.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
+        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1.4fr]">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            className="relative overflow-hidden rounded-3xl"
           >
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MapPin size={24} className="text-orange-600" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Office</h3>
-                <p className="text-gray-600">123 Real Estate Street<br />Cairo, Egypt 12345</p>
-              </div>
-            </div>
+            <Image
+              src="/media/img/solana-by-ora-web-2.jpg"
+              alt="Luxury waterfront property"
+              width={760}
+              height={920}
+              className="h-full min-h-[420px] w-full object-cover"
+              priority={false}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-orange-900/40 to-black/70" />
 
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Phone size={24} className="text-orange-600" />
-              </div>
+            <div className="relative z-10 flex h-full flex-col justify-between p-10 text-white">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
-                <p className="text-gray-600">+20 123 456 7890<br />+20 987 654 3210</p>
+                <div className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.4em] text-white/70">
+                  Headquarters
+                </div>
+                <h3 className="mt-4 text-3xl font-semibold">Y The Brokers</h3>
+                <p className="mt-3 text-sm text-white/70 leading-relaxed">
+                  123 Real Estate Street, Business District<br />
+                  Cairo, Egypt 12345
+                </p>
               </div>
-            </div>
 
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Mail size={24} className="text-orange-600" />
+              <div className="space-y-4">
+                {contactHighlights.map(({ icon: Icon, title, description, href }) => (
+                  <div
+                    key={title}
+                    className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
+                      <Icon size={22} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-white/60">{title}</p>
+                      {href ? (
+                        <a
+                          href={href}
+                          className="mt-1 inline-flex text-lg font-semibold text-white hover:text-orange-200 transition-colors"
+                        >
+                          {description}
+                        </a>
+                      ) : (
+                        <p className="mt-1 text-lg font-semibold text-white">{description}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                <p className="text-gray-600">info@ythebrokers.com<br />sales@ythebrokers.com</p>
+
+              <div className="mt-6 flex items-center gap-4 rounded-2xl bg-white/10 px-5 py-4 backdrop-blur">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                  <Users size={22} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-[0.4em] text-white/70">Dedicated Team</p>
+                  <p className="text-lg font-semibold">Property advisors, legal experts & financial analysts</p>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gray-50 rounded-xl p-8"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="rounded-3xl bg-white p-8 shadow-2xl shadow-orange-100/60"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
                     Full Name
                   </label>
                   <input
@@ -116,12 +170,12 @@ export default function SimpleContact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 shadow-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700">
                     Email Address
                   </label>
                   <input
@@ -131,14 +185,14 @@ export default function SimpleContact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 shadow-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
                     placeholder="Enter your email"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="phone" className="mb-2 block text-sm font-medium text-gray-700">
                   Phone Number
                 </label>
                 <input
@@ -147,14 +201,14 @@ export default function SimpleContact() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+                  className="w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 shadow-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
                   placeholder="Enter your phone number"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-gray-700">
+                  Project Requirements
                 </label>
                 <textarea
                   id="message"
@@ -163,29 +217,36 @@ export default function SimpleContact() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Tell us about your requirements..."
-                ></textarea>
+                  className="w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-gray-900 shadow-sm transition-all duration-300 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
+                  placeholder="Tell us more about your objectives, budget, and timelines..."
+                />
               </div>
 
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 py-3 text-white transition-all duration-300 hover:from-orange-700 hover:to-orange-600 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-white"></div>
                     Sending...
                   </>
                 ) : (
                   <>
                     <Send size={20} />
-                    Send Message
+                    Request a Call Back
                   </>
                 )}
               </Button>
             </form>
+
+            <div className="mt-6 rounded-2xl bg-gray-50 p-5 text-sm text-gray-600">
+              <p className="font-semibold text-gray-800">Prefer to visit our showroom?</p>
+              <p className="mt-1">
+                Book an in-person appointment at our Cairo headquarters or request a virtual property tour tailored to your shortlist.
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

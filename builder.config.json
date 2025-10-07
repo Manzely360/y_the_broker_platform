@@ -1,0 +1,6 @@
+{
+  "command": "npm run dev",
+  "serverUrl": "https://ythebrokerplatform-production.up.railway.app",
+  "authenticateProxy": false,
+  "commitMode": "commits"
+}
