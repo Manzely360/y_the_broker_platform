@@ -2,7 +2,7 @@
 const API_BASE = process.env.NEXT_PUBLIC_MANIFEST_API_BASE || 'http://localhost:3001';
 
 export interface Project {
-  id: string;
+  id: number;
   slug: string;
   name: string;
   location: string;
@@ -15,8 +15,8 @@ export interface Project {
   heroVideo?: string;
   status: string;
   developer: string;
-  bedrooms: string;
-  bathrooms: string;
+  bedrooms: string | null;
+  bathrooms: string | null;
   createdAt: string;
   updatedAt: string;
 }

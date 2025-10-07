@@ -3,13 +3,13 @@ export interface Property {
   name: string;
   slug: string;
   location: string;
-  category: string;
+  category: 'Residential' | 'Commercial' | 'Coastal';
   area: string;
   price: string;
   description: string;
   features: string[];
   gallery: string[];
-  heroVideo: string | null;
+  heroVideo?: string;
   status: string;
   developer: string;
   bedrooms: string | null;

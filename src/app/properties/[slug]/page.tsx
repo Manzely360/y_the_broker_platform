@@ -35,7 +35,7 @@ export default function PropertyDetailPage() {
   useEffect(() => {
     if (projects.length > 0 && params.slug) {
       const foundProperty = projects.find(p => p.slug === params.slug);
-      setProperty(foundProperty);
+      setProperty(foundProperty || null);
     }
   }, [projects, params.slug]);
 
