@@ -82,7 +82,6 @@ export default function ProfessionalPropertiesGrid() {
               tiltMaxAngleY={5}
               perspective={1000}
               transitionEasing="cubic-bezier(.03,.98,.52,.99)"
-              transitionDuration={400}
               scale={1.02}
               className="h-full"
             >
