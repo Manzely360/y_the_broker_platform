@@ -15,10 +15,6 @@ import {
   Share2,
   Star,
   Building2,
-  Car,
-  TreePine,
-  Shield,
-  Wifi,
   X
 } from "lucide-react";
 import Image from "next/image";

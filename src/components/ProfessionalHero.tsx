@@ -68,7 +68,6 @@ export default function ProfessionalHero() {
     const params = new URLSearchParams();
     if (searchQuery) params.append("q", searchQuery);
     if (selectedType) params.append("type", selectedType);
-    if (selectedLocation) params.append("location", selectedLocation);
     
     window.location.href = `/properties?${params.toString()}`;
   };
